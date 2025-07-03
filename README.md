@@ -15,6 +15,29 @@ A modern, responsive therapy website built for Dr. Serena Blake, a licensed clin
 - **Live Site**: [Your Vercel URL Here]
 - **Demo Video**: [Your Video URL Here]
 
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone [your-repo-url]
+   cd dr-serena-blake-website
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+
 ## Project Overview
 
 This website was developed as part of an internship assignment for Grow My Therapy, demonstrating the ability to create beautiful, functional websites for mental health professionals. The site features a warm, welcoming design that builds trust and encourages potential clients to reach out for support.
@@ -66,7 +89,7 @@ This website was developed as part of an internship assignment for Grow My Thera
 └── README.md
 ```
 
-## 👩‍⚕️ Therapist Information
+## Therapist Information
 
 **Dr. Serena Blake, PsyD (Clinical Psychologist)**
 
@@ -75,46 +98,25 @@ This website was developed as part of an internship assignment for Grow My Thera
 - **Email**: serena@blakepsychology.com
 - **Experience**: 8 years of practice, 500+ sessions
 
-### 🕒 Office Hours
+### Office Hours
 - **In-person**: Tuesday & Thursday, 10 AM – 6 PM
 - **Virtual via Zoom**: Monday, Wednesday & Friday, 1 PM – 5 PM
 
-### 💰 Session Fees
+### Session Fees
 - **Individual Session**: $200
 - **Couples Session**: $240
 
-### 🎯 Areas of Specialization
+### Areas of Specialization
 1. **Anxiety & Stress Management**
 2. **Relationship Counseling** 
 3. **Trauma Recovery**
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+ 
 - npm or yarn package manager
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone [your-repo-url]
-   cd dr-serena-blake-website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
 
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
@@ -126,7 +128,7 @@ npm run build
 npm start
 ```
 
-## 🎨 Design Inspiration
+## Design Inspiration
 
 This project draws inspiration from modern therapy websites with a focus on:
 - Clean, trustworthy design aesthetics
@@ -135,14 +137,14 @@ This project draws inspiration from modern therapy websites with a focus on:
 - Clear information hierarchy
 - Accessible, user-friendly interfaces
 
-## 📱 Responsive Design
+## Responsive Design
 
 The website is fully responsive and optimized for:
 - **Desktop**: Full-featured experience with hover effects
 - **Tablet**: Adapted layouts for medium screens
 - **Mobile**: Touch-friendly interface with optimized forms
 
-## ♿ Accessibility Features
+## Accessibility Features
 
 - Semantic HTML structure
 - Proper heading hierarchy
@@ -151,7 +153,7 @@ The website is fully responsive and optimized for:
 - Screen reader friendly
 - High contrast color combinations
 
-## 🔄 Future Enhancements
+## Future Enhancements
 
 Potential improvements for a production version:
 - [ ] Backend integration for form submissions
@@ -162,7 +164,7 @@ Potential improvements for a production version:
 - [ ] Analytics integration
 - [ ] Performance monitoring
 
-## 📞 Contact Form Features
+## Contact Form Features
 
 - **Validation**: Real-time form validation with error messaging
 - **Required Fields**: Name, phone, email, and consent checkbox
@@ -170,7 +172,7 @@ Potential improvements for a production version:
 - **Success Feedback**: Modal confirmation upon successful submission
 - **Mobile Optimized**: Touch-friendly inputs and layouts
 
-## 🎯 Performance Optimizations
+## Performance Optimizations
 
 - Next.js Image optimization for fast loading
 - Lazy loading for non-critical images
@@ -178,7 +180,7 @@ Potential improvements for a production version:
 - TypeScript for development efficiency
 - Component-based architecture for maintainability
 
-## 🤝 Contributing
+## Contributing
 
 This project was created as an internship assignment. For questions or suggestions:
 
@@ -188,6 +190,6 @@ This project was created as an internship assignment. For questions or suggestio
 4. Push to the branch
 5. Create a Pull Request
 
-## 📄 License
+## License
 
 This project is created for educational purposes as part of an internship assignment for Grow My Therapy.
