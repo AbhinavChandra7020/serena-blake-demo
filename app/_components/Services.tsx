@@ -50,7 +50,7 @@ const Services = () => {
       imageAlt: "Person in calm setting representing anxiety therapy",
       title: "Anxiety & Stress Management",
       description:
-        "Whether you're overwhelmed by daily demands or facing persistent worry, therapy provides a grounding space to explore what lies beneath your anxiety. Together, we can identify stressors, build effective coping strategies, and cultivate a sense of calm and resilience in your life.",
+        "Whether you&apos;re overwhelmed by daily demands or facing persistent worry, therapy provides a grounding space to explore what lies beneath your anxiety. Together, we can identify stressors, build effective coping strategies, and cultivate a sense of calm and resilience in your life.",
       objectPosition: "center 30%",
       imageClassName: "object-cover",
     },
@@ -59,7 +59,7 @@ const Services = () => {
       imageAlt: "Two people talking representing relationship counseling",
       title: "Relationship Counseling",
       description:
-        "Relationships shape how we experience the world—and ourselves. Therapy offers a space to explore patterns, improve communication, and heal past relational wounds, whether you're seeking support for romantic partnerships, friendships, or family dynamics.",
+        "Relationships shape how we experience the world—and ourselves. Therapy offers a space to explore patterns, improve communication, and heal past relational wounds, whether you&apos;re seeking support for romantic partnerships, friendships, or family dynamics.",
       objectPosition: "40% center",
       imageClassName: "object-cover scale-110",
     },
@@ -68,7 +68,7 @@ const Services = () => {
       imageAlt: "Symbolic image representing healing from trauma",
       title: "Trauma Recovery",
       description:
-        "Trauma can disrupt your sense of safety and connection, but it does not have to define your story. Therapy can help you process what you've experienced at your own pace, rebuild trust in yourself and others, and move toward deeper healing and integration.",
+        "Trauma can disrupt your sense of safety and connection, but it does not have to define your story. Therapy can help you process what you&apos;ve experienced at your own pace, rebuild trust in yourself and others, and move toward deeper healing and integration.",
       objectPosition: "60% 40%",
       imageClassName: "object-cover scale-105",
     },
@@ -80,12 +80,12 @@ const Services = () => {
         <div className="text-center mb-20">
           <h2 className="text-3xl sm:text-3xl lg:text-4xl font-light text-warmClay mb-8 leading-relaxed max-w-4xl mx-auto font-suranna">
             Therapy is a space for clarity, growth, and emotional healing—<br />
-            grounded in care that's both thoughtful and evidence-based.
+            grounded in care that&apos;s both thoughtful and evidence-based.
           </h2>
 
           <p className="text-lg text-warmClay leading-loose max-w-4xl mx-auto font-light font-raleway">
-            Whether you're navigating anxiety, relationship stress, unresolved trauma, or simply seeking deeper self-understanding, therapy can help 
-            you make meaningful change. With a warm and collaborative approach, we'll explore your patterns, strengthen your sense of self, and move 
+            Whether you&apos;re navigating anxiety, relationship stress, unresolved trauma, or simply seeking deeper self-understanding, therapy can help 
+            you make meaningful change. With a warm and collaborative approach, we&apos;ll explore your patterns, strengthen your sense of self, and move 
             toward greater peace and connection—at a pace that respects your story.
           </p>
 

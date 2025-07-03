@@ -238,7 +238,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
           placeholder="e.g., Mornings, Afternoons, Evenings, Weekends"
         />
         <p className="text-sm text-gray-600 mt-1 font-raleway">
-          Let us know when you're typically available for a call or consultation
+          Let us know when you&apos;re typically available for a call or consultation
         </p>
       </div>
 

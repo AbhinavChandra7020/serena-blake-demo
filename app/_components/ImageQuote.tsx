@@ -20,8 +20,8 @@ const ImageQuote = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 md:px-8">
         <blockquote className="text-white mb-4 sm:mb-6 max-w-4xl">
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-light leading-relaxed tracking-wide">
-            "I have come to believe that caring for myself is not self-indulgent.<br />
-            Caring for myself is an act of survival."
+            &ldquo;I have come to believe that caring for myself is not self-indulgent.<br />
+            Caring for myself is an act of survival.&rdquo;
           </p>
         </blockquote>
         

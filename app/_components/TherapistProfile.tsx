@@ -39,7 +39,7 @@ export default function TherapistProfile() {
             <div className="space-y-6 text-warmClay leading-loose tracking-wider text-center lg:text-left font-raleway">
               <p>
                 Finding time and opportunities to care for ourselves can be incredibly 
-                challenging in today's busy and demanding world. I believe therapy 
+                challenging in today&apos;s busy and demanding world. I believe therapy 
                 offers a dedicated space for self-care, providing the support and tools 
                 needed to improve this essential practice. Therapy can help 
                 individuals identify and clarify their goals, values, and the various 
