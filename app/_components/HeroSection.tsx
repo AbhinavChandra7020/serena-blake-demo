@@ -12,7 +12,8 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="bg-honeydew px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 pb-40 pt-10 font-suranna">
+      {/* Hero loads immediately after header, no scroll trigger needed */}
+      <div className="bg-honeydew px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 pb-40 pt-10 font-suranna fade-in-delayed">
         <div className="relative w-full max-w-none h-[60vh] sm:h-[65vh] md:h-[70vh]">
           {/* Hero Image */}
           <Image
@@ -28,16 +29,18 @@ const HeroSection = () => {
 
           {/* Text Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6 md:px-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-2 tracking-wide">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-2 tracking-wide hero-fade">
               Expert Therapy
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 tracking-wide pt-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 tracking-wide pt-10 stagger-1">
               Rooted in Compassion & Science
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-white mb-6 sm:mb-8 md:mb-12 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl font-light leading-relaxed pt-10 font-raleway">
+            <p className="text-sm sm:text-base md:text-lg text-white mb-6 sm:mb-8 md:mb-12 max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl font-light leading-relaxed pt-10 font-raleway stagger-2">
               Helping You Heal, Grow, and Reconnect — In-Person in LA or Virtually Across the U.S.
             </p>
-            <Button onClick={openContactForm} />
+            <div className="stagger-3">
+              <Button onClick={openContactForm} />
+            </div>
           </div>
         </div>
       </div>

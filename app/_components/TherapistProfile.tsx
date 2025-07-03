@@ -1,19 +1,25 @@
 import Image from 'next/image';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 export default function TherapistProfile() {
+  const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.2 });
+
   return (
-    <div className="bg-gray-50 min-h-screen pt-48 pb-16 px-4">
+    <div 
+      ref={elementRef}
+      className={`bg-gray-50 min-h-screen pt-48 pb-16 px-4 scroll-fade-up ${isVisible ? 'visible' : ''}`}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           {/* Title - Only visible on mobile, positioned above image */}
-          <div className="lg:hidden order-1 mb-8">
+          <div className={`lg:hidden order-1 mb-8 scroll-fade-up scroll-fade-delayed ${isVisible ? 'visible' : ''}`}>
             <h1 className="text-3xl sm:text-4xl font-light text-gray-800 text-center">
               About Dr. Serena Blake
             </h1>
           </div>
           
           {/* Image - Second on mobile (after title), second on desktop */}
-          <div className="flex justify-center lg:justify-end order-2 lg:order-2">
+          <div className={`flex justify-center lg:justify-end order-2 lg:order-2 scroll-fade-right scroll-fade-delayed ${isVisible ? 'visible' : ''}`}>
             <div className="relative">
               <div className="w-[20rem] sm:w-[24rem] lg:w-[28rem] h-[24rem] sm:h-[28rem] lg:h-[32rem] bg-gray-200 overflow-hidden relative">
                 <Image 
@@ -30,14 +36,14 @@ export default function TherapistProfile() {
           </div>
           
           {/* Text Content - Third on mobile, first on desktop */}
-          <div className="space-y-8 order-3 lg:order-1">
+          <div className={`space-y-8 order-3 lg:order-1 scroll-fade-left scroll-fade-delayed-2 ${isVisible ? 'visible' : ''}`}>
             {/* Title - Only visible on desktop */}
             <h1 className="hidden lg:block text-4xl font-medium text-mossSoft mb-8 text-left font-suranna">
               About Dr. Serena Blake
             </h1>
             
-            <div className="space-y-6 text-warmClay leading-loose tracking-wider text-center lg:text-left font-raleway">
-              <p>
+            <div className="space-y-6 text-warmClay leading-loose tracking-wider text-center lg:text-left font-raleway scroll-stagger-container">
+              <p className={`scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}`}>
                 Finding time and opportunities to care for ourselves can be incredibly 
                 challenging in today&apos;s busy and demanding world. I believe therapy 
                 offers a dedicated space for self-care, providing the support and tools 
@@ -47,7 +53,7 @@ export default function TherapistProfile() {
                 aspects vary from person to person.
               </p>
               
-              <p>
+              <p className={`scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}`}>
                 I am dedicated to supporting this journey by offering active listening, 
                 psychological knowledge, empathy, compassion, and insights into 
                 behavioral patterns and tendencies. As a licensed clinical psychologist 
@@ -58,7 +64,7 @@ export default function TherapistProfile() {
                 relationships, and heal from trauma.
               </p>
               
-              <p>
+              <p className={`scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}`}>
                 I approach therapy as a collaborative process grounded in empathy, curiosity, and practical tools tailored to your needs. My work draws from well-researched methods while honoring your individual story, identity, and goals. Whether we meet in my Maplewood Drive office or online, I aim to create a space where you feel seen, heard, and supported—so you can move forward with clarity and confidence.
               </p>
             </div>
@@ -66,7 +72,7 @@ export default function TherapistProfile() {
         </div>
         
         {/* Bottom line */}
-        <div className="border-t-2 border-gray-400 mt-32 lg:mt-60 -mx-24 pb-12"></div>
+        <div className={`border-t-2 border-gray-400 mt-32 lg:mt-60 -mx-24 pb-12 scroll-fade-up scroll-fade-delayed-3 ${isVisible ? 'visible' : ''}`}></div>
       </div>
     </div>
   );

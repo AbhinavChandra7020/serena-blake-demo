@@ -2,7 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-honeydew py-4 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 pt-10">
+    // Header loads immediately, no scroll trigger needed
+    <header className="bg-honeydew py-4 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 pt-10 fade-in">
       <div className="flex items-center">
         {/* Logo/Icon */}
         <div className="flex items-center space-x-3">

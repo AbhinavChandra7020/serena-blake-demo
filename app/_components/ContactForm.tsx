@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 interface ContactFormProps {
   isModal?: boolean;
@@ -82,6 +83,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
+  // Always call the hook, but only use values when not in modal mode
+  const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.3 });
+
   useEffect(() => {
     if (!isModal || !isOpen) return;
 
@@ -155,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
 
   const renderFormFields = () => (
     <>
-      <div>
+      <div className={!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}>
         <label htmlFor="name" className="block text-gray-800 font-bold mb-2 font-suranna">
           Name
         </label>
@@ -173,7 +177,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         {errors.name && <p className="text-red-500 text-sm mt-1 font-raleway">{errors.name}</p>}
       </div>
 
-      <div>
+      <div className={!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}>
         <label htmlFor="phone" className="block text-gray-800 font-bold mb-2 font-suranna">
           Phone
         </label>
@@ -191,7 +195,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         {errors.phone && <p className="text-red-500 text-sm mt-1 font-raleway">{errors.phone}</p>}
       </div>
 
-      <div>
+      <div className={!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}>
         <label htmlFor="email" className="block text-gray-800 font-bold mb-2 font-suranna">
           Email
         </label>
@@ -209,7 +213,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         {errors.email && <p className="text-red-500 text-sm mt-1 font-raleway">{errors.email}</p>}
       </div>
 
-      <div>
+      <div className={!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}>
         <label htmlFor="message" className="block text-gray-800 font-bold mb-2 font-suranna">
           What brings you here?
         </label>
@@ -224,7 +228,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         />
       </div>
 
-      <div>
+      <div className={!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}>
         <label htmlFor="preferredTime" className="block text-gray-800 font-bold mb-2 font-suranna">
           Preferred time to reach you
         </label>
@@ -242,7 +246,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         </p>
       </div>
 
-      <div className="flex items-start space-x-3">
+      <div className={`flex items-start space-x-3 ${!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}`}>
         <input
           type="checkbox"
           id="agreeToContact"
@@ -264,7 +268,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         </div>
       </div>
 
-      <div className="mt-8">
+      <div className={`mt-8 ${!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}`}>
         <button
           type="submit"
           className="w-full py-4 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors duration-200 text-lg"
@@ -273,7 +277,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
         </button>
       </div>
 
-      <div className="mt-4 text-center">
+      <div className={`mt-4 text-center ${!isModal ? `scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}` : ''}`}>
         <p className="text-xs text-gray-600 flex items-center justify-center">
           <span className="w-4 h-4 border border-gray-400 rounded-full mr-2 flex items-center justify-center">
             <span className="text-gray-400 text-xs">i</span>
@@ -297,11 +301,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
   return (
     <>
       <div 
-        className={containerClass}
+        ref={!isModal ? elementRef : undefined}
+        className={`${containerClass} ${!isModal ? `scroll-fade-up ${isVisible ? 'visible' : ''}` : ''}`}
         onClick={isModal ? (e) => e.target === e.currentTarget && onClose && onClose() : undefined}
       >
         <div className={formClass}>
-          <div className="flex justify-between items-center p-8 pb-4">
+          <div className={`flex justify-between items-center p-8 pb-4 ${!isModal ? `scroll-fade-up scroll-fade-delayed ${isVisible ? 'visible' : ''}` : ''}`}>
             <div className="text-center flex-1">
               <h2 className="text-3xl font-bold text-slate-600 mb-4 font-suranna">Get In Touch</h2>
               <p className="text-gray-700 text-sm leading-relaxed font-raleway font-semibold">
@@ -321,7 +326,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, isOpen = tru
           </div>
 
           <div className="px-8 pb-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className={`space-y-6 ${!isModal ? 'scroll-stagger-container' : ''}`}>
               {renderFormFields()}
             </form>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 interface ServiceCardProps {
   imageSrc: string;
@@ -9,6 +10,8 @@ interface ServiceCardProps {
   imageClassName?: string;
   containerClassName?: string;
   objectPosition?: string;
+  index: number;
+  isVisible: boolean;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -18,10 +21,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   imageClassName = "object-cover",
   containerClassName = "relative w-[28rem] h-[28rem] sm:w-[32rem] sm:h-[32rem] lg:w-[36rem] lg:h-[36rem] xl:w-[40rem] xl:h-[40rem] rounded-full overflow-hidden",
-  objectPosition = "center"
+  objectPosition = "center",
+  index,
+  isVisible
 }) => {
+  const delayClass = index === 0 ? '' : index === 1 ? 'scroll-fade-delayed' : 'scroll-fade-delayed-2';
+  
   return (
-    <div className="flex flex-col items-center text-center space-y-8">
+    <div className={`flex flex-col items-center text-center space-y-8 scroll-fade-up ${delayClass} ${isVisible ? 'visible' : ''}`}>
       <div className={containerClassName}>
         <Image
           src={imageSrc}
@@ -44,6 +51,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 };
 
 const Services = () => {
+  const headerTrigger = useScrollTrigger({ threshold: 0.3 });
+  const servicesTrigger = useScrollTrigger({ threshold: 0.2 });
+
   const servicesData = [
     {
       imageSrc: "/anxiety-therapy.png",
@@ -77,28 +87,34 @@ const Services = () => {
   return (
     <div className="bg-honeydew pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-        <div className="text-center mb-20">
+        <div 
+          ref={headerTrigger.elementRef}
+          className={`text-center mb-20 scroll-fade-up ${headerTrigger.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-3xl sm:text-3xl lg:text-4xl font-light text-warmClay mb-8 leading-relaxed max-w-4xl mx-auto font-suranna">
             Therapy is a space for clarity, growth, and emotional healing—<br />
             grounded in care that&apos;s both thoughtful and evidence-based.
           </h2>
 
-          <p className="text-lg text-warmClay leading-loose max-w-4xl mx-auto font-light font-raleway">
+          <p className={`text-lg text-warmClay leading-loose max-w-4xl mx-auto font-light font-raleway scroll-fade-up scroll-fade-delayed ${headerTrigger.isVisible ? 'visible' : ''}`}>
             Whether you&apos;re navigating anxiety, relationship stress, unresolved trauma, or simply seeking deeper self-understanding, therapy can help 
             you make meaningful change. With a warm and collaborative approach, we&apos;ll explore your patterns, strengthen your sense of self, and move 
             toward greater peace and connection—at a pace that respects your story.
           </p>
 
-          <div className="border-t-2 border-gray-400 mt-16 -mx-24"></div>
+          <div className={`border-t-2 border-gray-400 mt-16 -mx-24 scroll-fade-up scroll-fade-delayed-2 ${headerTrigger.isVisible ? 'visible' : ''}`}></div>
         </div>
       </div>
 
       <div className="w-full bg-honeydew text-center mb-16 mt-32">
-        <h2 className="text-4xl sm:text-5xl text-warmClay mb-20 pb-20 font-suranna">
+        <h2 className={`text-4xl sm:text-5xl text-warmClay mb-20 pb-20 font-suranna scroll-fade-up ${servicesTrigger.isVisible ? 'visible' : ''}`}>
           Areas of Focus
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-12 xl:gap-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+        <div 
+          ref={servicesTrigger.elementRef}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-12 xl:gap-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24"
+        >
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}
@@ -108,6 +124,8 @@ const Services = () => {
               description={service.description}
               objectPosition={service.objectPosition}
               imageClassName={service.imageClassName}
+              index={index}
+              isVisible={servicesTrigger.isVisible}
             />
           ))}
         </div>

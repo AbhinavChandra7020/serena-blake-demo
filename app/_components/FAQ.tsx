@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 interface OpenItems {
   [key: number]: boolean;
@@ -7,6 +8,7 @@ interface OpenItems {
 
 const FAQ: React.FC = () => {
   const [openItems, setOpenItems] = useState<OpenItems>({});
+  const { elementRef, isVisible } = useScrollTrigger({ threshold: 0.2 });
 
   const toggleItem = (index: number): void => {
     setOpenItems(prev => ({
@@ -31,17 +33,20 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div 
+      ref={elementRef}
+      className={`bg-white scroll-fade-up ${isVisible ? 'visible' : ''}`}
+    >
       <div className="max-w-4xl mx-auto px-4 py-16">
       {/* Main Title */}
-      <h1 className="text-4xl md:text-5xl font-light text-slate-600 text-center mb-16 font-suranna">
+      <h1 className={`text-4xl md:text-5xl font-light text-slate-600 text-center mb-16 font-suranna scroll-fade-up scroll-fade-delayed ${isVisible ? 'visible' : ''}`}>
         Frequently Asked Questions
       </h1>
 
       {/* FAQ Items */}
-      <div className="space-y-1 font-raleway">
+      <div className="space-y-1 font-raleway scroll-stagger-container">
           {faqData.map((item, index) => (
-            <div key={index} className="border-b border-slate-300">
+            <div key={index} className={`border-b border-slate-300 scroll-fade-up scroll-stagger-item ${isVisible ? 'visible' : ''}`}>
               <button
                 onClick={() => toggleItem(index)}
                 className="w-full py-6 flex items-center justify-between text-left hover:bg-white hover:bg-opacity-60 transition-all duration-200 rounded-lg px-4"
@@ -57,7 +62,7 @@ const FAQ: React.FC = () => {
               </button>
               
               {openItems[index] && (
-                <div className="pb-6 pl-0 pr-8">
+                <div className="pb-6 pl-0 pr-8 scroll-fade-scale visible">
                   <p className="text-base text-slate-600 leading-relaxed">
                     {item.answer}
                   </p>

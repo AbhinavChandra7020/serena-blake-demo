@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   children = "Schedule a Consultation", 
   variant = "primary" 
 }) => {
-  const baseClasses = "font-normal py-4 sm:py-5 px-8 sm:px-12 rounded-full transition-colors duration-200 text-sm sm:text-base uppercase tracking-wider";
+  const baseClasses = "font-normal py-4 sm:py-5 px-8 sm:px-12 rounded-full transition-colors duration-200 text-sm sm:text-base uppercase tracking-wider fade-in-scale";
   
   const variantClasses: Record<'primary' | 'secondary' | 'outline', string> = {
     primary: "bg-teal-500 hover:bg-teal-600 text-white",

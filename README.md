@@ -12,14 +12,14 @@ A modern, responsive therapy website built for Dr. Serena Blake, a licensed clin
 
 ## Live Demo
 
-- **Live Site**: [Your Vercel URL Here]
+- **Live Site**: [\[Your Vercel URL Here\]](https://serena-blake-psyd.vercel.app/)
 - **Demo Video**: [Your Video URL Here]
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/AbhinavChandra7020/serena-blake-demo
    cd dr-serena-blake-website
    ```
 
